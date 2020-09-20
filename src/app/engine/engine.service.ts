@@ -72,10 +72,7 @@ export class EngineService implements OnDestroy {
   }
 
   public render(): void {
-    this.frameId = requestAnimationFrame(() => {
-      this.render();
-    });
-
+    this.frameId = requestAnimationFrame(this.render);
     this.cube.rotation.x += 0.01;
     this.cube.rotation.y += 0.01;
     this.renderer.render(this.scene, this.camera);
